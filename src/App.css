@@ -13,6 +13,21 @@
   }
 }
 
+table, tbody, tr, th, td{
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+table{
+  width: 50%;
+  margin: auto;
+}
+
+tbody tr:nth-child(even){
+  background-color: rgb(103, 191, 255);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
