@@ -3,10 +3,12 @@ import {useContext} from 'react'
 import { DataContext } from '../Context/DataContext';
 import {Link} from 'react-router-dom'
 import Button from './Button';
+import NavBar from './NavBar';
 
 function CompanyMenu(){
     //This is our mock database
     const database = useContext(DataContext);
+   
     console.log(database)
     
     const company = database.map((item,i)=>{
@@ -16,9 +18,11 @@ function CompanyMenu(){
      })
 
     return(
-        
         <div>
-            {company}
+            <NavBar value = 'Company Menu'/>
+            <div className='App'>
+                {company}
+            </div>
         </div>
     )
 
