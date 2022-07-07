@@ -4,7 +4,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import SkuSearchResults from "../pages/SkuSearchResults";
 import axios from 'axios';
 
-function SkuSearch(){
+function SkuSearch1(){
 
     const [skuSearch, setSkuSearch] = useState('');
     const [color, setColor] = useState('');
@@ -21,30 +21,36 @@ function SkuSearch(){
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('sku searched: ', skuSearch)
-        const skuResults = dataBase.map(item=>{
-            if(item.itemNumber == skuSearch.toLowerCase()){
-                return item
+        const skuSearchedArray = skuSearch.split(' ');
+        console.log(skuSearchedArray)
+        if(skuSearchedArray.length == 1){
+            const skuResults = dataBase.filter(item=>{
+               return item.itemNumber == skuSearchedArray[0].toLowerCase()
+            })
+            if(skuResults.length){
+                setResults(skuResults)
+            }else{
+                setResults([{
+                    itemNumber: 'N/A',
+                    color: 'N/A',
+                    qty: 0
+                }])
+                //the else above does not work. Need to catch the error if skuResults is undefinded
             }
-            else{
-                return (
-                    {
-                        itemNumber: 'N/A',
-                        color: 'N/A',
-                        qty: 0,
-                        location: 'N/A'
-                    }
-                )
-            }
-           
-     });
-     if(color){
-        const withColor = skuResults.filter(item=>item.color == color.toLowerCase());
-        console.log('styles found', skuResults)
-        setResults(withColor);
-     }
-     else{
-        setResults(skuResults);
-     }
+        }
+        else if(skuSearchedArray.length == 2){
+            const skuResults = dataBase.filter(item=>{
+                return item.color == skuSearchedArray[1].toLowerCase()
+             })
+             if(skuResults.length){
+                setResults(skuResults)
+             }else{
+                console.log('color not exist')
+             }
+            
+        }
+        
+        console.log('results', results)
     }
 
     const mainMenu = <a href='#'>Main Menu</a>
@@ -55,7 +61,6 @@ function SkuSearch(){
             <div className="App">
                 <form onSubmit={handleSubmit}>
                     <input style = {{width: '25%', margin: '2px'}} placeholder = 'SKU Search' type='text' value={skuSearch} onChange={(e)=>setSkuSearch(e.target.value)}/> 
-                    <input style = {{width: '25%', margin: '2px'}} placeholder="Color" onChange={(e)=>setColor(e.target.value)}/>
                     <button type='submit'>Submit</button> 
                     <br/>
                     <h2>Style Searched: {skuSearch.toUpperCase()}</h2>
@@ -66,4 +71,4 @@ function SkuSearch(){
     )
 }
 
-export default SkuSearch
+export default SkuSearch1

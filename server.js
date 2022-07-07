@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost:27017/Deluxity', {useNewUrlParser: true, useUnifiedTopology: true}, ()=> console.log('Database Connected'));
 

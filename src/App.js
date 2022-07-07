@@ -5,10 +5,12 @@ import { useState } from 'react';
 import MainMenu from './components/MainMenu';
 import { DataContext } from './Context/DataContext';
 import NavBar from './components/NavBar';
-import SkuSearch from './components/SkuSearch';
+import SkuSearch1 from './components/SkuSearch1';
 import CheckLocation from './components/CheckLocation';
-import SalesOrders from './components/SalesOrders';
+// import SalesOrders from './components/SalesOrders';
 import axios from 'axios';
+
+// import Verify from './pages/Verify';
 
 function App() {
 
@@ -61,9 +63,13 @@ function App() {
             <Routes>
                 <Route exact path= "/" element={<CompanyMenu/>}/>
                 <Route path= "/MainMenu" element={<MainMenu/>}/>
-                <Route path= "/SkuSearch" element={<SkuSearch/>}/>
+                <Route path= "/SkuSearch" element={<SkuSearch1/>}/>
                 <Route path= "/CheckLocation" element={<CheckLocation/>}/>
-                <Route path= "/SalesOrders" element={<SalesOrders/>}/>
+                {/* <Route path= "/SalesOrders" element={<SalesOrders/>}/> */}
+                {/* <Route path= "/RecordPicklist" element={<RecordPicklist/>}/> */}
+                {/* <Route path= "/Verify" element={<Verify/>}/> */}
+                {/* <Route path= "/Final" element={<Final/>}/>
+                <Route path= "/Cancelled" element={<Cancelled/>}/> */}
             </Routes>
           </DataContext.Provider>
       </Router>
