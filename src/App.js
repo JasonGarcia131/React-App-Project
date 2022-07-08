@@ -7,7 +7,11 @@ import { DataContext } from './Context/DataContext';
 import NavBar from './components/NavBar';
 import SkuSearch1 from './components/SkuSearch1';
 import CheckLocation from './components/CheckLocation';
-// import SalesOrders from './components/SalesOrders';
+import SalesOrders from './pages/SalesOrders';
+import Verify from './pages/Verify';
+import Final from './pages/Final';
+import Cancelled from './pages/Cancelled';
+import RecordPicklist from './pages/RecordPicklist';
 import axios from 'axios';
 
 // import Verify from './pages/Verify';
@@ -65,11 +69,11 @@ function App() {
                 <Route path= "/MainMenu" element={<MainMenu/>}/>
                 <Route path= "/SkuSearch" element={<SkuSearch1/>}/>
                 <Route path= "/CheckLocation" element={<CheckLocation/>}/>
-                {/* <Route path= "/SalesOrders" element={<SalesOrders/>}/> */}
-                {/* <Route path= "/RecordPicklist" element={<RecordPicklist/>}/> */}
-                {/* <Route path= "/Verify" element={<Verify/>}/> */}
-                {/* <Route path= "/Final" element={<Final/>}/>
-                <Route path= "/Cancelled" element={<Cancelled/>}/> */}
+                <Route path= "/SalesOrders" element={<SalesOrders/>}/>
+                <Route path= "/RecordPicklist" element={<RecordPicklist/>}/>
+                <Route path= "/Verify" element={<Verify/>}/> 
+                <Route path= "/Final" element={<Final/>}/>
+                <Route path= "/Cancelled" element={<Cancelled/>}/> 
             </Routes>
           </DataContext.Provider>
       </Router>
