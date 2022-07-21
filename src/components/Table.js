@@ -1,14 +1,19 @@
 // import React from React
 
-// function Table(props){
+function Table(props){
 
+    const tableColumns = props.value.map((e,i)=>{
+        return(
+                <th key = {i}>{Object.keys(e)}</th>
+        )
+    })
 
-//     const tableColumns = props.tableColumns.map((e,i)=>{
-//         return(
-//                 <th key = {i}>{e}</th>
-//         )
-//     })
-
+    console.log(tableColumns)
+    return(
+        <div>{tableColumns}</div>
+    )
+}
+export default Table
 //     //trying to make table component reusable. Made a change to sku search line line. delete to revert changes
 
 //     const mappedData = props.value.map((e,i)=>{

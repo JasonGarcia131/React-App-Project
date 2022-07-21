@@ -3,7 +3,8 @@ import NavBar from "./NavBar";
 import React, {useState, useEffect, useContext} from 'react'
 import SkuSearchResults from "../pages/SkuSearchResults";
 import axios from 'axios';
-
+import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
+import Table from "./Table";
 function SkuSearch1(){
 
     const [skuSearch, setSkuSearch] = useState('');
@@ -55,6 +56,7 @@ function SkuSearch1(){
 
     const mainMenu = <a href='#'>Main Menu</a>
     const tableColumns = ['style', 'qty','color','location']
+    const msg = skuSearch.length !== " " ? skuSearch.toUpperCase() : "Sku doesnt not exist" 
     return(
         <div>
             <NavBar value = 'Company Menu > Main Menu > Sku Search'/>
@@ -63,9 +65,10 @@ function SkuSearch1(){
                     <input style = {{width: '25%', margin: '2px'}} placeholder = 'SKU Search' type='text' value={skuSearch} onChange={(e)=>setSkuSearch(e.target.value)}/> 
                     <button type='submit'>Submit</button> 
                     <br/>
-                    <h2>Style Searched: {skuSearch.toUpperCase()}</h2>
+                    <h2>Style Searched: {msg}</h2>
                 </form>
-                <SkuSearchResults value = {results} tables={tableColumns}/>
+                <SkuSearchResults value = {results}/>
+                <Table value = {results}/>
                 {/* Line 68 tables props is a test. remove to have a functioning app */}
             </div>
         </div>
