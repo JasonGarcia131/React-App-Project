@@ -13,4 +13,12 @@ router.get('/', async (req, res) => {
     }
 })
 
+// router.post('/newSku', (req,res)=>{
+//     try{
+//         const newSku = new sku({
+//             //
+//         })
+//     }
+// })
+
 module.exports = router;

@@ -54,7 +54,7 @@ function SkuSearch1(){
     }
 
     const mainMenu = <a href='#'>Main Menu</a>
-
+    const tableColumns = ['style', 'qty','color','location']
     return(
         <div>
             <NavBar value = 'Company Menu > Main Menu > Sku Search'/>
@@ -65,7 +65,8 @@ function SkuSearch1(){
                     <br/>
                     <h2>Style Searched: {skuSearch.toUpperCase()}</h2>
                 </form>
-                <SkuSearchResults value = {results}/>
+                <SkuSearchResults value = {results} tables={tableColumns}/>
+                {/* Line 68 tables props is a test. remove to have a functioning app */}
             </div>
         </div>
     )

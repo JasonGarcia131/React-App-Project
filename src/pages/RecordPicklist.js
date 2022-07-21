@@ -6,6 +6,7 @@ function RecordPicklist(){
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('Submit: ', salesorder)
+        //use axios to make a post request to the controllers
     }
 
     return(
